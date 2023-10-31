@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 4 - jQuery</title>
+</head>
+<body>
+    <input type="number" name="ipt1" id="ipt1">
+
+    <input type="number" name="ipt2" id="ipt2">
+
+    <input type="number" name="ipt3" id="ipt3">
+
+    <script src="jquery.js"></script>
+
+    <script>
+     $(document).ready( function(){
+              $('#ipt2').change( function () {
+                let ipt1 = parseInt($('#ipt1').val());
+                let ipt2 = parseInt($('#ipt2').val());
+                let soma = ipt1 + ipt2;
+                $('#ipt3').val(soma);
+              })
+            })
+    </script>
+</body>
+</html>

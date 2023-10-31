@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 3 - jQuery</title>
+</head>
+<body>
+    <input type="text" name="ipt1" id="ipt1">
+
+    <input type="text" name="ipt2" id="ipt2">
+
+    <script src="jquery.js"></script>
+
+    <script>
+     $(document).ready( function(){
+              $('#ipt1').change( function () {
+                let ipt1 = $('#ipt1').val();
+                $('#ipt2').val(ipt1);
+              })
+            })
+    </script>
+</body>
+</html>
