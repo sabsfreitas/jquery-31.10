@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1 - 07/11</title>
+</head>
+<body>
+    <table style="margin: auto;">
+        <tr>
+            <th>Calculadora</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>
+                    <label for="valor1">Valor 1:</label>
+                    <input type="number" name="valor1" id="valor1">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="valor1">Valor 2:</label>
+                    <input type="number" name="valor2" id="valor2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="operador" id="operador">Operador:
+                        <option value="default" selected>Selecione uma operação</option>
+                        <option value="+" id="+">Somar (+)</option>
+                        <option value="-" id="-">Subtrair (-)</option>
+                        <option value="/" id="/">Dividir (/)</option>
+                        <option value="*" id="*">Multiplicar (*)</option>
+                    </select>
+                </td>
+            </tr>
+           <td>
+                <p id="demo">Aguardando...</p>
+                <p id="paridade"></p>
+                <p id="historicop"></p>
+           </td>
+        </tbody>
+    </table>
+
+    <script src="jquery.js"></script>
+
+    <script>
+     $(document).ready(function() {
+        let historico = [];
+        $("#operador").change(function() {
+             let valor1 = parseInt($("#valor1").val());
+             let valor2 = parseInt($("#valor2").val());
+             let operacao = $("select option:selected").val();
+
+             if (!isNaN(valor1) && !isNaN(valor2)) {
+                switch (operacao) {
+                    case "+":
+                        result = valor1 + valor2;
+                        break;
+                    case "-":
+                        result = valor1 - valor2;
+                        break;
+                    case "/":
+                        if (valor2 != 0) {
+                              result = valor1 / valor2;
+                               } else {
+                                    alert("Não é possível dividir por zero");
+                                        return false;
+                                }
+                                break;
+                    case "*":
+                        result = valor1 * valor2;
+                        break;
+                }};
+
+                $("#demo").text("O resultado é " + result);
+                if (result % 2 == 0) {
+                    $("#paridade").text(result + " é par");
+                } else {
+                    $("#paridade").text(result + " é ímpar");
+                }
+                
+                if (historico.length < 10) {
+                    historico.push(result)
+                }
+                
+                let texto = "";
+                for (let i = 0; i < historico.length; i++) {
+                    texto += historico[i] + ", ";
+                    $("#historicop").text(texto)
+                };
+        });
+     });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+      <html lang="pt-br">
+        <head>
+          <meta charset="UTF-8" />
+        </head>
+        <body>
+          <p id="p1">
+            Este texto pertence ao primeiro parágrafo
+          </p>
+          <button id="copiar">Copiar texto de p2 para p1</button>
+          <p id="p2">
+            <i>Este texto pertence ao segundo parágrafo</i>
+          </p>
+          <script src="jquery.js"></script>
+          <script>
+          $(document).ready( function(){
+              $('#copiar').click( function () {
+                // Salva conteúdo de p2 em uma variavel:
+                var p2Texto = $('#p2').html();
+                // Atribui a p1 o conteúdo de p2:
+                $('#p1').html(p2Texto);
+              })
+            })
+          </script>
+        </body>
+      </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+      <html lang="pt-br">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Seletores</title>
+        </head>
+        <body>
+         
+          <form>
+            <input id="num1" class="soma" type="text">
+            <input id="num2" class="soma" type="text">
+            <input id="result" type="text">
+            <input type="button" id="calcular" value="Calcular">
+            <p id="info"></p>
+
+          </form>
+
+          <script src="jquery.js"></script>
+          <script>
+            $(document).ready(function () {
+                $('#num2').keyup(function(){
+                    let num1 = $('#num1').val();
+                    let num2 = $('#num2').val();
+                    let result = parseInt(num1) + parseInt(num2);
+                    $('#result').val(result);
+
+                    
+
+                    if(num1 > num2){
+                      $('#info').html("<h3>O primeiro número é o maior</h3>");
+                    }
+                    else if(num1 < num2){
+                      $('#info').html("<h3>O segundo número é o maior</h3>");
+                    }
+                    else{
+                      $('#info').html("<h3>Os dois números são iguais</h3>");
+                    }
+                });
+            });
+          </script>
+        </body>
+      </html>
